@@ -17,9 +17,9 @@ public class CalenderprojectApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(EventRepository eventRepository) {
+	public CommandLineRunner commandLineRunner() {
 		return (args) -> {
-
+			log.info("Test");
 		};
 	}
 }
