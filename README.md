@@ -3,7 +3,7 @@ Im Rahmen des Moduls Webtechnologien an der HTW-Berlin wird ein Online-Kalender 
 
 Anforderungen im Überblick: - die Anwendung ist nach Heroku deployed und öffentlich ansprechbar - Termine und Nutzer-Daten und Einstellungen werden in einer Datenbank gespeichert - es gibt einen User-Login, mehrere User werden unterstützt - Passwörter werden verschlüsselt gespeichert, Credentials gehen nicht als Klartext nach Github - Frontend- und Backend-Tests werden automatisiert von Github ausgeführt (CI/CD) - es gibt eine REST-Schnittstelle (GET, POST) - Funktionalitäten sind dynamisch im Frontend umgesetzt, VUE.js (keine Kommunikation mit Server nötig)
 
-Das Projekt ist auf Github öffentlich zugänglich: https://github.com/MarieJager/Calender
+Das Projekt ist auf Github öffentlich zugänglich: https://github.com/MarieJager/htwcalenderproject
 
 Zeitrahmen:
 
