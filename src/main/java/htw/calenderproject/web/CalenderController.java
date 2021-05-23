@@ -4,11 +4,13 @@ package htw.calenderproject.web;
 import htw.calenderproject.EventRepository;
 import htw.calenderproject.config.Endpoints;
 import htw.calenderproject.config.ViewNames;
+import htw.calenderproject.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -23,7 +25,8 @@ public class CalenderController {
     }
 
     @GetMapping(path = Endpoints.CALENDER)
-    public ModelAndView showCalender(){
+    public ModelAndView showCalender(@AuthenticationPrincipal OidcUser user, @ModelAttribute Model model){
+        EventService.setOwner(user.getPreferredUsername());
         return new ModelAndView(ViewNames.CALENDER);
     }
 
