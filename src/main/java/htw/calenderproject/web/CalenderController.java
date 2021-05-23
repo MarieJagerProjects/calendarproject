@@ -19,4 +19,8 @@ public class CalenderController {
     public ModelAndView showIndexPage() {
         return new ModelAndView(ViewNames.INDEX);
     }
+    @GetMapping(path = Endpoints.LOGIN)
+    public ModelAndView loginUser() {
+        return new ModelAndView(ViewNames.LOGIN);
+    }
 }
