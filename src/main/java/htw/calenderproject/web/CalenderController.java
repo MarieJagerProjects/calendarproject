@@ -22,16 +22,6 @@ public class CalenderController {
         return new ModelAndView(ViewNames.INDEX);
     }
 
-    @GetMapping(path = Endpoints.LOGIN)
-    public ModelAndView loginUser(@AuthenticationPrincipal OidcUser user, Model model) {
-        String email = user.getEmail();
-
-        model.addAttribute("email", email);
-        model.addAttribute("username", user.getGivenName());
-
-        return new ModelAndView(ViewNames.LOGIN);
-    }
-
     @GetMapping(path = Endpoints.CALENDER)
     public ModelAndView showCalender(){
         return new ModelAndView(ViewNames.CALENDER);
