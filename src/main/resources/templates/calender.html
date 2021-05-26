@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html data-th-replace="~{layout :: layout (~{::body})}">
+<html th:replace="~{layout :: layout (~{::body})}" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title></title>
+    <meta charset="UTF-8">
+    <title>Calender App</title>
 </head>
 <body>
-    <p>
-    Welcome to your calender <span data-th-text="${user}">user</span>!
-    </p>
+ <h1 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]!</h1>
+ <form th:action="@{/logout}" method="post">
+     <input type="submit" value="Sign Out"/>
+ </form>
 </body>
 </html>
