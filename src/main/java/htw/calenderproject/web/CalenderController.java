@@ -4,17 +4,17 @@ package htw.calenderproject.web;
 import htw.calenderproject.EventRepository;
 import htw.calenderproject.config.Endpoints;
 import htw.calenderproject.config.ViewNames;
-import htw.calenderproject.service.EventService;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.oauth2.core.oidc.user.OidcUser;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-@RestController
+
+@Controller
 public class CalenderController {
     @Autowired
     EventRepository eventRepository;
@@ -24,10 +24,12 @@ public class CalenderController {
         return new ModelAndView(ViewNames.INDEX);
     }
 
-    @GetMapping(path = Endpoints.CALENDER)
-    public ModelAndView showCalender(@AuthenticationPrincipal OidcUser user, @ModelAttribute Model model){
-        EventService.setOwner(user.getPreferredUsername());
-        return new ModelAndView(ViewNames.CALENDER);
+    @GetMapping(path=Endpoints.CALENDER)
+    public ModelAndView eventOverview(@AuthenticationPrincipal User user, Model model){
+        String username = user.getUsername();
+        var mav = new ModelAndView();
+        mav.addObject("username", username);
+        mav.setViewName(ViewNames.CALENDER);
+        return mav;
     }
-
 }
