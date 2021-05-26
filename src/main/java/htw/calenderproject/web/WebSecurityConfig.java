@@ -1,6 +1,7 @@
 package htw.calenderproject.web;
 
 
+import htw.calenderproject.config.Endpoints;
 import htw.calenderproject.config.ViewNames;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .anyRequest().authenticated()
                     .and()
                 .formLogin()
-                    .loginPage(ViewNames.LOGIN)
+                    .loginPage(Endpoints.LOGIN)
                     .permitAll()
                     .and()
                 .logout()
