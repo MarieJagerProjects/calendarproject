@@ -4,31 +4,37 @@ package htw.calenderproject.web;
 import htw.calenderproject.EventRepository;
 import htw.calenderproject.config.Endpoints;
 import htw.calenderproject.config.ViewNames;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.time.LocalDate;
 
 
 @Controller
 public class CalenderController {
     @Autowired
     EventRepository eventRepository;
-
-    @Value("Marie")
-    private String user;
+    LocalDate today = java.time.LocalDate.now();
 
     @GetMapping (path = Endpoints.INDEX)
-    public ModelAndView showIndexPage() {
-        return new ModelAndView(ViewNames.INDEX);
+    public ModelAndView showIndexPage(Model model) {
+        var mav = new ModelAndView();
+        mav.addObject("today", today);
+        mav.setViewName((ViewNames.INDEX));
+        return mav;
     }
 
     @GetMapping(path=Endpoints.CALENDER)
-    public ModelAndView eventOverview(Model model){
+    public ModelAndView eventOverview(@AuthenticationPrincipal User user, Model model){
+        String username = user.getUsername();
         var mav = new ModelAndView();
-        mav.addObject("user", user);
+        mav.addObject("username", username);
         mav.setViewName(ViewNames.CALENDER);
         return mav;
     }
