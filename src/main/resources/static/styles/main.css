@@ -1,0 +1,11 @@
+/*https://www.baeldung.com/spring-thymeleaf-css-js*/
+h1 {font-family: Segoe UI, serif;
+}
+h2 {
+    font-family: Segoe UI, serif;
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+p {
+    font-family: Segoe UI, serif;
+}
