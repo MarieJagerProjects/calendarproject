@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Calender app</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <link th:href="@{/css/main.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/actions.js}"></script>
+    <title>Calender app</title>
 </head>
 <body>
     <h1>Welcome to the calender app!</h1>
-    <!-- Login Button -->
     <h2> Today is: <span th:text="${today}"></span></h2>
+    <!--Register -->
     <a class="btn btn-primary" href="#" role="button">Link</a>
-    <button class="btn btn-primary" type="submit">Button</button>
-    <input class="btn btn-primary" type="button" value="LogIn">
+    <!-- Login Button -->
+    <button class="btn btn-primary" type="button"></button>
     <!-- Calender-->
     <table class="table">
         <thead>
