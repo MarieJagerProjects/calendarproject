@@ -1,0 +1,27 @@
+{
+  "name": "jest",
+  "version": "1.0.0",
+  "description": "Im Rahmen des Moduls Webtechnologien an der HTW-Berlin wird ein Online-Kalender realisiert von Marie Jager (Einzelarbeit). Ein Nutzer kann sich für diesen Kalender anmelden und seine Termine speichern. Beim nächsten Zugriff werden alle bereits gespeicherten Termine angezeigt. Eventuelle Features: Der Nutzer kann die Farbe der Kalendereinträge bestimmen. Der Nutzer kann Termine mit anderen Nutzern teilen. Es wird eine Web Application gebaut, eine Datenbank realisiert und eine Nutzer-Interaktion eingerichtet. Das Projekt wird in Java programmiert und mit Tests versehen.",
+  "main": "jest",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarieJager/htwcalenderproject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarieJager/htwcalenderproject/issues"
+  },
+  "homepage": "https://github.com/MarieJager/htwcalenderproject#readme",
+  "devDependencies": {
+    "eslint": "^7.28.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jest": "^24.3.6",
+    "eslint-plugin-vue": "^7.10.0",
+    "jest": "^27.0.4"
+  }
+}
