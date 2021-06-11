@@ -15,11 +15,5 @@ public class CalenderprojectApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CalenderprojectApplication.class, args);
 	}
-/*
-	@Bean
-	public CommandLineRunner commandLineRunner() {
-		return (args) -> {
-			log.info("Test");
-		};
-	}*/
+
 }
