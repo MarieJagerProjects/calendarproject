@@ -1,12 +1,11 @@
 package htw.calenderproject.web;
 
 
-import htw.calenderproject.EventRepository;
+import htw.calenderproject.persistence.event.EventRepository;
 import htw.calenderproject.config.Endpoints;
 import htw.calenderproject.config.ViewNames;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

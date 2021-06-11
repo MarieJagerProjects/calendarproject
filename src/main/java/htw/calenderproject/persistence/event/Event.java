@@ -1,4 +1,4 @@
-package htw.calenderproject;
+package htw.calenderproject.persistence.event;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
