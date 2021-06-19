@@ -10,6 +10,7 @@ Anforderungen im Überblick:
 - es gibt eine REST-Schnittstelle (GET, POST) 
 - Funktionalitäten sind dynamisch im Frontend umgesetzt, VUE.js (keine Kommunikation mit Server nötig)
 
+
 Das Projekt ist auf Github öffentlich zugänglich: https://github.com/MarieJager/htwcalenderproject
 
 Zeitrahmen:
@@ -19,3 +20,7 @@ Mai: REST-Schnittstelle, zu Heroku deployed, Daten werden in Datenbank gespeiche
 Mai: statische, server-seitig mit Thymeleaf ersteltte, grafische Oberfläche
 Juni: dynamische, mit Vue.js erstellte grafische Oberfläche
 Juni: finale Abgabe
+
+
+Weitere geplante Funktionalitäten:
+- CustomErrorPage
