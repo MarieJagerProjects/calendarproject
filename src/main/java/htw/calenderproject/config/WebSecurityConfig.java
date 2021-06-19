@@ -1,19 +1,17 @@
 package htw.calenderproject.config;
 
 import htw.calenderproject.service.UserService;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.access.AccessDeniedHandler;
+
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
 
     private final UserService userService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -32,7 +30,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                             //Pages
                             .antMatchers(
                                     Endpoints.INDEX,
-                                    Endpoints.ERROR,
                                     Endpoints.LOGIN,
                                     Endpoints.REGISTER
                             ).permitAll()
@@ -48,9 +45,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                     .loginPage(Endpoints.LOGIN)
                     .loginProcessingUrl(Endpoints.LOGIN)
-                    .usernameParameter("username")
-                    .defaultSuccessUrl(ViewNames.CALENDER)
                     .failureUrl(Endpoints.LOGIN + "?badCredentials")
+                    .usernameParameter("username")
+                    .passwordParameter("password")
+                    .defaultSuccessUrl(Endpoints.CALENDER)
+                .and()
+                    .logout()
+                    .logoutSuccessUrl("/")
                 .and()
                 .httpBasic();
     }
@@ -60,12 +61,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userService).passwordEncoder(bCryptPasswordEncoder);
     }
 
-    @Bean
-    public AccessDeniedHandler accessDeniedHandler(){
-        return new CustomAccessDeniedHandler();
-    }
 }
-
 
 /* resources: https://mainul35.medium.com/spring-mvc-spring-security-in-memory-user-details-configuration-90d106b53d23
 https://github.com/DanielW1987/tinder-for-dogs
