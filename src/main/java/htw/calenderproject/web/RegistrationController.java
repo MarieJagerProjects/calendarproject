@@ -27,7 +27,7 @@ public class RegistrationController {
         @PostMapping(path = Endpoints.REGISTER)
         public RedirectView handleRegistrationRequest(RegistrationRequest registrationRequest) {
             userService.createUser(registrationRequest);
-            return new RedirectView(Endpoints.LOGIN + "?registrationSuccessful");
+            return new RedirectView(Endpoints.CALENDER);
         }
 
         @ModelAttribute(name = "registrationRequest")

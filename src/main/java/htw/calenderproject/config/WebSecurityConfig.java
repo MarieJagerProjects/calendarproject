@@ -47,7 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                     .loginPage(Endpoints.LOGIN)
                     .loginProcessingUrl(Endpoints.LOGIN)
-                    .failureUrl(Endpoints.LOGIN + "?badCredentials")
+                    .failureUrl(Endpoints.ERROR)
                     .usernameParameter("username")
                 .and()
                 .httpBasic();
