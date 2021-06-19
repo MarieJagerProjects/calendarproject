@@ -3,6 +3,7 @@
 <head>
     <title>Calender App</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--Vue.js -->
     <script src="https://unpkg.com/vue@next" defer></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -10,7 +11,7 @@
     <script src="#" th:src="@{/js/app.js}" defer></script>
 </head>
 <body>
- <h1 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]!</h1>
+ <h1 th:inline="text">Welcome!</h1>
 <div id="app">
     <app></app>
 </div>
