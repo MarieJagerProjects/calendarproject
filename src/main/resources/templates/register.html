@@ -8,7 +8,27 @@
     <link th:href="@{/css/main.css}" rel="stylesheet" />
 </head>
 <body>
-    <h2>Easy registration</h2>
-
+    <h3>Easy registration</h3>
+    <form class="row g-3" method="post" th:action="@{/register}" th:object="${registrationRequest}">
+        <div class="col-md-4">
+            <label for="username" class="form-label">User name</label>
+            <input type="text" class="form-control" id="username" th:field="*{username}" required autofocus>
+        </div>
+        <div class="col-md-4">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" th:field="*{email}">
+        </div>
+        <div class="col-md-8">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" th:field="*{password}" required aria-describedby="passwordHelpBlock">
+            <div id="passwordHelpBlock" class="form-text">
+                Your password must at least 8 characters long, contain letters and numbers, and must not contain spaces and special characters.
+            </div>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Register</button>
+            <button class="btn btn-danger" type="reset">Reset</button>
+        </div>
+    </form>
 </body>
 </html>

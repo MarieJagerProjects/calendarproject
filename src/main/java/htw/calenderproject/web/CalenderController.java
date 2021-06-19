@@ -1,7 +1,6 @@
 package htw.calenderproject.web;
 
 
-import htw.calenderproject.persistence.event.EventRepository;
 import htw.calenderproject.config.Endpoints;
 import htw.calenderproject.config.ViewNames;
 import org.apache.catalina.User;
@@ -17,8 +16,7 @@ import java.time.LocalDate;
 
 @Controller
 public class CalenderController {
-    @Autowired
-    EventRepository eventRepository;
+
     LocalDate today = java.time.LocalDate.now();
 
     @GetMapping (path = Endpoints.INDEX)
