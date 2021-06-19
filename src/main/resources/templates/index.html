@@ -6,17 +6,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!--CSS layout -->
     <link th:href="@{/css/main.css}" rel="stylesheet" />
-
-
-
 </head>
 <body>
     <h1>Welcome to the calender app!</h1>
     <h2> Today is: <span th:text="${today}"></span></h2>
     <!--Register -->
-    <a class="btn btn-primary" href="#" role="button">Link</a>
+    <form method="get" action="/register">
+        <button type="submit">Register</button>
+    </form>
     <!-- Login Button -->
-    <button class="btn btn-primary" type="button"></button>
+    <form method="get" action="/login">
+        <button type="submit">Login</button>
+    </form>
     <!-- Calender-->
     <table class="table">
         <thead>
