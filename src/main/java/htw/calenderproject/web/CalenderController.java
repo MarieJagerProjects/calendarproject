@@ -9,6 +9,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDate;
@@ -24,6 +25,14 @@ public class CalenderController {
         var mav = new ModelAndView();
         mav.addObject("today", today);
         mav.setViewName((ViewNames.INDEX));
+        return mav;
+    }
+
+    @GetMapping(path = Endpoints.LOGIN)
+    public ModelAndView userLogin (Model model, @RequestParam(name = "badCredentials", required = false) String badCredentials) {
+        var mav = new ModelAndView();
+        mav.addObject("badCredentials", badCredentials);
+        mav.setViewName((ViewNames.LOGIN));
         return mav;
     }
 

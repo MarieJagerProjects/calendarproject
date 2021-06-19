@@ -14,6 +14,7 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+
     private final UserService userService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -47,8 +48,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                     .loginPage(Endpoints.LOGIN)
                     .loginProcessingUrl(Endpoints.LOGIN)
-                    .failureUrl(Endpoints.ERROR)
                     .usernameParameter("username")
+                    .defaultSuccessUrl(ViewNames.CALENDER)
+                    .failureUrl(Endpoints.LOGIN + "?badCredentials")
                 .and()
                 .httpBasic();
     }
@@ -63,3 +65,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new CustomAccessDeniedHandler();
     }
 }
+
+
+/* resources: https://mainul35.medium.com/spring-mvc-spring-security-in-memory-user-details-configuration-90d106b53d23
+https://github.com/DanielW1987/tinder-for-dogs
+ */
