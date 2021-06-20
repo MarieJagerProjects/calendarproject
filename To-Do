@@ -1,0 +1,20 @@
+- app.js:
+    Event Datum als Vorauswahl
+    Events speichern
+    Events wiedergeben
+
+- Frontend- und Backend-Tests
+- Grid Layout https://getbootstrap.com/docs/5.0/layout/grid/
+- Register und Login Button tauschen
+- nach Login: Assistent mit allen wichtigen Infos
+- Assistenten bauen
+- Nutzer merken
+- CustomErrorPage
+- Kalenderansicht anpassbar (Tag, Woche, Monat)
+- Notizen des Tages
+- Farbkodierung, individuell für jeden Nutzer
+- Termine teilen
+
+Problemlösung:
+- FetchUser in app.js https://router.vuejs.org/guide/advanced/data-fetching.html#fetching-before-navigation
+- Display user in welcome
