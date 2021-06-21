@@ -1,12 +1,15 @@
 package htw.calenderproject.persistence.user;
 
+import htw.calenderproject.persistence.event.EventEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
-    @Entity
+@Entity
     @Table(name = "users")
     public class UserEntity implements UserDetails {
         @Id
@@ -22,6 +25,9 @@ import java.util.Collection;
 
         @Column(name = "encrypted_password", nullable = false, length = 60)
         private String encryptedPassword;
+
+        @OneToMany(mappedBy = "username")
+        private List<EventEntity> events;
 
         protected UserEntity() {}
 

@@ -2,7 +2,16 @@ const app = Vue.createApp({});
 app.component('app', {
   template: `
     <div>
+        <h1>Welcome {{ user }}!</h1>
         <h3>This week:</h3>
+        <h4 v-if="items.length === 0">No events</h4>
+        
+        <div>
+            <p>Create a new event:</p>
+        <input v-model="titleField" placeholder="Title" ref="titleInput">
+        <input v-model="timeField" placeholder="Time" ref="timeInput">
+        <button type="button" @click="save()">Save</button>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -17,9 +26,6 @@ app.component('app', {
                 </tr>
             </thead>
             <tbody>
-                <tr v-if="items.length === 0">
-                    <td colspan="2">No events this week</td>
-                </tr>
                 <tr v-for="events in items">
                     <td>{{event.title}}</td>
                     <td>{{event.time}}</td>
@@ -30,12 +36,7 @@ app.component('app', {
                 </tr>
             </tbody>
         </table>
-        <div>
-            <p>Create a new event:</p>
-            <input v-model="titleField" placeholder="Title" ref="titleInput">
-            <input v-model="timeField" placeholder="Time" ref="timeInput">
-            <button type="button" @click="save()">Save</button>
-        </div>
+
     </div>
   `,
   data() {
