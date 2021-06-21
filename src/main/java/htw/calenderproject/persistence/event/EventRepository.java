@@ -1,17 +1,11 @@
 package htw.calenderproject.persistence.event;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.List;
+import java.util.Optional;
 
 @Repository
-public interface EventRepository extends CrudRepository<EventEntity, Long> {
-    List<EventEntity> findByUserName(String userName);
-    EventEntity findById(long id);
-    EventEntity findByDate(LocalDate date);
-    EventEntity findByTime(LocalTime time);
+public interface EventRepository extends JpaRepository<EventEntity, Long> {
+    Optional<EventEntity> findByTitle(String title);
 }

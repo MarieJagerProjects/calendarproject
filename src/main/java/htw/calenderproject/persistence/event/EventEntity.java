@@ -4,25 +4,36 @@ import htw.calenderproject.persistence.user.UserEntity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
+@Table(name = "event")
 public class EventEntity {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private long id;
 
+    @Column(name = "title", nullable = false)
     private String title;
+
+    @Column(name = "date", nullable = false)
     private LocalDate date;
-    private LocalDate time;
+
+    @Column(name = "time")
+    private LocalTime time;
+
+    @Column(name = "user")
+    private String user;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="username", nullable = false)
+    @JoinColumn(name="user", nullable = false)
     private UserEntity userEntity;
 
     protected EventEntity( ) {
         super();
     }
 
-    public EventEntity(String name, LocalDate date, LocalDate time) {
+    public EventEntity(String name, LocalDate date, LocalTime time) {
         super( );
         this.title = name;
         this.date = date;
@@ -37,7 +48,7 @@ public class EventEntity {
         return date;
     }
 
-    public LocalDate getTime() {
+    public LocalTime getTime() {
         return time;
     }
 
