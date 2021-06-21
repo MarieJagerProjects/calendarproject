@@ -7,7 +7,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 
 @Entity
     @Table(name = "users")
@@ -36,6 +35,7 @@ import java.util.Map;
             this.email = email;
             this.encryptedPassword = encryptedPassword;
         }
+
         @Override
         public Collection<? extends GrantedAuthority> getAuthorities() {
             return null;
@@ -69,4 +69,9 @@ import java.util.Map;
         public boolean isEnabled() {
             return true;
         }
+
+        public List getEventList() {
+            return events;
+        }
+
     }
