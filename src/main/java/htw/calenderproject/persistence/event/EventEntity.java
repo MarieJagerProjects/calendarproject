@@ -33,11 +33,12 @@ public class EventEntity {
         super();
     }
 
-    public EventEntity(String name, LocalDate date, LocalTime time) {
+    public EventEntity(String name, LocalDate date, LocalTime time, String user) {
         super( );
         this.title = name;
         this.date = date;
         this.time = time;
+        this.user = user;
     }
 
     public String getTitle() {

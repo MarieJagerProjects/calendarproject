@@ -1,8 +1,6 @@
 
 - app.js:
     Event Datum als Vorauswahl
-    Events speichern
-    Events wiedergeben
 
 - Frontend- und Backend-Tests
 - Grid Layout https://getbootstrap.com/docs/5.0/layout/grid/

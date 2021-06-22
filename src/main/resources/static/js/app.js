@@ -8,8 +8,9 @@ app.component('app', {
         
         <div>
             <p>Create a new event:</p>
-        <input v-model="titleField" placeholder="Title" ref="titleInput">
-        <input v-model="timeField" placeholder="Time" ref="timeInput">
+        <input v-model="titleField" placeholder="Enter a title" ref="titleInput">
+        <input v-model="dateField" placeholder="Pick a date" ref="dateInput">
+        <input v-model="timeField" placeholder="Pick a time" ref="timeInput">
         <button type="button" @click="save()">Save</button>
         </div>
         <table>
@@ -43,6 +44,7 @@ app.component('app', {
     return {
       user: '',
       items: [],
+      dateField: '',
       titleField: '',
       timeField: '',
     };
@@ -69,10 +71,12 @@ app.component('app', {
   save() {
     axios.post('/calender', {
       title: this.titleField,
+      date: this.dateField,
       time: this.timeField,
     })
       .then((response) => {
         this.titleField = '';
+        this.dateField = '';
         this.timeField = '';
         this.$refs.titleInput.focus();
         this.loadEvents();

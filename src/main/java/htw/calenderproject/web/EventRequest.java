@@ -1,21 +1,24 @@
 package htw.calenderproject.web;
 
+import htw.calenderproject.persistence.user.UserEntity;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class SavingRequest {
+public class EventRequest {
 
     private String username;
+    private UserEntity user;
     private String title;
     private LocalDate date;
     private LocalTime time;
 
-    public String getUsername() {
-        return username;
+    public String getUser() {
+        return user.toString();
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUser(UserEntity user) {
+        this.user = user;
     }
 
     public String getTitle() {
@@ -44,6 +47,6 @@ public class SavingRequest {
 
     @Override
     public String toString(){
-        return "SavingRequest{" + "username='" + username + '\'' + ", title='" + title + '\'' +  ", date='" + date + '\'' + ", time='" + time + '\'' + '}';
+        return "EventRequest{" + ", title='" + title + '\'' +  ", date='" + date + '\'' + ", time='" + time + '\'' + ", username='" + username + '\'' + '}';
     }
 }
