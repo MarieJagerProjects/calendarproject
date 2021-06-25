@@ -36,7 +36,10 @@ public class CalenderController {
     @GetMapping(path=Endpoints.CALENDER)
     public ModelAndView eventOverview(Model model){
         var mav = new ModelAndView();
+        
         mav.setViewName(ViewNames.CALENDER);
         return mav;
     }
+
+    //PostMapping /calender
 }

@@ -19,8 +19,7 @@ public class EventService {
         EventEntity eventEntity = new EventEntity(
                 eventRequest.getTitle(),
                 eventRequest.getDate(),
-                eventRequest.getTime(),
-                eventRequest.getUser()
+                eventRequest.getTime()
         );
         eventRepository.save(eventEntity);
     }

@@ -25,7 +25,7 @@ import java.util.List;
         @Column(name = "encrypted_password", nullable = false, length = 60)
         private String encryptedPassword;
 
-        @OneToMany(mappedBy = "username")
+        @OneToMany(mappedBy = "title")
         private List<EventEntity> events;
 
         protected UserEntity() {}

@@ -2,7 +2,7 @@ const app = Vue.createApp({});
 app.component('app', {
   template: `
     <div>
-        <h1>Welcome {{ user }}!</h1>
+        <h1 v-for="user">Welcome {{user}}!</h1>
         <h3>This week:</h3>
         <h4 v-if="items.length === 0">No events</h4>
         
@@ -42,47 +42,34 @@ app.component('app', {
   `,
   data() {
     return {
-      user: '',
+        user: '',
       items: [],
       dateField: '',
       titleField: '',
       timeField: '',
     };
   },
-  created() {
-    this.fetchUser();
-  },
   methods: {
-    fetchUser() {
-      axios.get('/current-user')
-        .then((response) => {
-          this.user = response.data;
-        })
-        .catch((error) => {
-          alert('User could not be fetched');
-          console.error(error.response.data);
-        });
+    loadEvents() {
+      axios.get('/calender')
+        .then((response) => (this.items = response.data));
     },
-  },
-  loadEvents() {
-    axios.get('/calender')
-      .then((response) => (this.items = response.data));
-  },
   save() {
     axios.post('/calender', {
       title: this.titleField,
       date: this.dateField,
       time: this.timeField,
     })
-      .then((response) => {
-        this.titleField = '';
-        this.dateField = '';
-        this.timeField = '';
-        this.$refs.titleInput.focus();
-        this.loadEvents();
-      }, (error) => {
-        console.log('Could not save event!');
-      });
+        .then((response) => {
+          this.titleField = '';
+          this.dateField = '';
+          this.timeField = '';
+          this.$refs.titleInput.focus();
+          this.loadEvents();
+        }, (error) => {
+          console.log('Could not save event!');
+        });
+    },
   },
   mounted() {
     this.loadEvents();

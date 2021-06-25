@@ -2,9 +2,11 @@
 - app.js:
     Event Datum als Vorauswahl
 
+- Logout Button
 - Frontend- und Backend-Tests
 - Grid Layout https://getbootstrap.com/docs/5.0/layout/grid/
 - Register und Login Button tauschen
+- Remember Me - beim Login
 - nach Login: Assistent mit allen wichtigen Infos
 - Assistenten bauen
 - Nutzer merken
