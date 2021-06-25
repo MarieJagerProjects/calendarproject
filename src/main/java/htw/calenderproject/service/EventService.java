@@ -6,6 +6,9 @@ import htw.calenderproject.persistence.event.EventRepository;
 import htw.calenderproject.web.EventRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class EventService {
 
@@ -19,7 +22,8 @@ public class EventService {
         EventEntity eventEntity = new EventEntity(
                 eventRequest.getTitle(),
                 eventRequest.getDate(),
-                eventRequest.getTime()
+                eventRequest.getTime(),
+                eventRequest.getUser()
         );
         eventRepository.save(eventEntity);
     }
@@ -27,5 +31,10 @@ public class EventService {
         return eventRepository
                 .findById(id)
                 .orElseThrow(() -> new EventNotFoundException("Event with the id '" + id + "' not found."));
+    }
+
+    public Optional<List<EventEntity>> loadEventsByUser(String username) {
+
+        return eventList;
     }
 }

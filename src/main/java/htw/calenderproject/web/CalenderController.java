@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDate;
-import java.util.Map;
 
 
 @Controller
@@ -45,9 +44,7 @@ public class CalenderController {
     @GetMapping(path=Endpoints.CALENDER)
     public ModelAndView showCalender (Model model, String username) {
         ModelAndView mav = new ModelAndView(ViewNames.CALENDER);
-        if(userService.getAllEvents(username).isPresent()) {
-            mav.addObject(userService.getAllEvents(username));
-        }
+
         return mav;
     }
 

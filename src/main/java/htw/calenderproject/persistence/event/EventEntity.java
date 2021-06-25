@@ -23,18 +23,19 @@ public class EventEntity {
     private LocalTime time;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="user", nullable = false)
+    @JoinColumn(name="username", nullable = false)
     private UserEntity userEntity;
 
     protected EventEntity( ) {
         super();
     }
 
-    public EventEntity(String name, LocalDate date, LocalTime time) {
+    public EventEntity(String name, LocalDate date, LocalTime time, UserEntity user) {
         super( );
         this.title = name;
         this.date = date;
         this.time = time;
+        this.userEntity = user;
     }
 
     public String getTitle() {
@@ -49,7 +50,7 @@ public class EventEntity {
         return time;
     }
 
-    public UserEntity getUser() {
-        return userEntity;
+    public String getUser() {
+        return userEntity.getUsername();
     }
 }

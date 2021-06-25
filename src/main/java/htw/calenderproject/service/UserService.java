@@ -40,9 +40,4 @@ public class UserService implements UserDetailsService {
                 .findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User with name '" + username + "' not found."));
     }
-
-    public Optional<List<EventEntity>> getAllEvents(String username) throws UsernameNotFoundException{
-        Optional<List<EventEntity>> EventList = userRepository.getEventList(username);
-        return EventList;
-    }
 }

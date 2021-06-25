@@ -7,18 +7,13 @@ import java.time.LocalTime;
 
 public class EventRequest {
 
-    private String username;
     private UserEntity user;
     private String title;
     private LocalDate date;
     private LocalTime time;
 
-    public String getUser() {
-        return user.toString();
-    }
-
-    public void setUser(UserEntity user) {
-        this.user = user;
+    public UserEntity getUser() {
+        return user;
     }
 
     public String getTitle() {
@@ -47,6 +42,6 @@ public class EventRequest {
 
     @Override
     public String toString(){
-        return "EventRequest{" + ", title='" + title + '\'' +  ", date='" + date + '\'' + ", time='" + time + '\'' + ", username='" + username + '\'' + '}';
+        return "EventRequest{" + ", title='" + title + '\'' +  ", date='" + date + '\'' + ", time='" + time + '\'' + '}';
     }
 }

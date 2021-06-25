@@ -6,9 +6,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Entity
     @Table(name = "users")
@@ -26,9 +23,6 @@ import java.util.stream.Collectors;
 
         @Column(name = "encrypted_password", nullable = false, length = 60)
         private String encryptedPassword;
-
-        @OneToMany(mappedBy = "title")
-        private List<EventEntity> events;
 
         protected UserEntity() {}
 
@@ -72,8 +66,5 @@ import java.util.stream.Collectors;
             return true;
         }
 
-        public List<EventEntity> getEventList(String username) {
-            return events;
-        }
 
     }
