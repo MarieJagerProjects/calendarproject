@@ -20,7 +20,7 @@ public class EventController {
     }
 
     @GetMapping(path = Endpoints.EVENT)
-    public ModelAndView showEventPage () {
+    public ModelAndView showNewEventPage () {
         return new ModelAndView(ViewNames.EVENT);
     }
 

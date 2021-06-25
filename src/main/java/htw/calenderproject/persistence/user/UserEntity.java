@@ -7,6 +7,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Entity
     @Table(name = "users")
@@ -70,7 +72,7 @@ import java.util.List;
             return true;
         }
 
-        public List getEventList() {
+        public List<EventEntity> getEventList(String username) {
             return events;
         }
 
