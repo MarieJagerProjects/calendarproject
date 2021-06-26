@@ -15,7 +15,7 @@ import java.util.Collection;
         @Column(name = "id")
         private long id;
 
-        @Column(name = "username", nullable = false, unique = true)
+        @Column(name = "username", nullable = false)
         private String username;
 
         @Column(name = "email")

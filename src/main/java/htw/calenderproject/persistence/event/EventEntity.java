@@ -9,7 +9,7 @@ import java.time.LocalTime;
 @Entity
 @Table(name = "event")
 public class EventEntity {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private long id;
 
@@ -22,20 +22,19 @@ public class EventEntity {
     @Column(name = "time")
     private LocalTime time;
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="username", nullable = false)
-    private UserEntity userEntity;
+    @Column(name="username", nullable = false)
+    private String username;
 
     protected EventEntity( ) {
         super();
     }
 
-    public EventEntity(String name, LocalDate date, LocalTime time, UserEntity user) {
+    public EventEntity(String name, LocalDate date, LocalTime time, String username) {
         super( );
         this.title = name;
         this.date = date;
         this.time = time;
-        this.userEntity = user;
+        this.username = username;
     }
 
     public String getTitle() {
@@ -51,7 +50,7 @@ public class EventEntity {
     }
 
     public String getUser() {
-        return userEntity.getUsername();
+        return username;
     }
 
     public void setId(long id) {
@@ -70,7 +69,4 @@ public class EventEntity {
         this.time = time;
     }
 
-    public void setUserEntity(UserEntity userEntity) {
-        this.userEntity = userEntity;
-    }
 }

@@ -9,8 +9,8 @@ app.component('app', {
         <div>
             <p>Create a new event:</p>
         <input v-model="titleField" placeholder="Enter a title" ref="titleInput">
-        <input v-model="dateField" placeholder="d/MM/yyyy" ref="dateInput">
-        <input v-model="timeField" placeholder="Pick a time" ref="timeInput">
+        <input v-model="dateField" placeholder="dd/MM/yyyy" ref="dateInput">
+        <input v-model="timeField" placeholder="hh:mm" ref="timeInput">
         <button type="button" @click="save()">Save</button>
         </div>
         <table>
