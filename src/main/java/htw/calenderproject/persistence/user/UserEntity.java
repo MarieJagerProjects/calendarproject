@@ -1,12 +1,13 @@
 package htw.calenderproject.persistence.user;
 
+import htw.calenderproject.persistence.event.EventEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
 
-    @Entity
+@Entity
     @Table(name = "users")
     public class UserEntity implements UserDetails {
         @Id
@@ -14,7 +15,7 @@ import java.util.Collection;
         @Column(name = "id")
         private long id;
 
-        @Column(name = "username", nullable = false, unique = true)
+        @Column(name = "username", nullable = false)
         private String username;
 
         @Column(name = "email")
@@ -30,6 +31,7 @@ import java.util.Collection;
             this.email = email;
             this.encryptedPassword = encryptedPassword;
         }
+
         @Override
         public Collection<? extends GrantedAuthority> getAuthorities() {
             return null;
@@ -63,4 +65,6 @@ import java.util.Collection;
         public boolean isEnabled() {
             return true;
         }
+
+
     }

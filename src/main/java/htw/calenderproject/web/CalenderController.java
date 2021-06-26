@@ -3,9 +3,12 @@ package htw.calenderproject.web;
 
 import htw.calenderproject.config.Endpoints;
 import htw.calenderproject.config.ViewNames;
+import htw.calenderproject.service.EventService;
+import htw.calenderproject.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,6 +19,11 @@ import java.time.LocalDate;
 public class CalenderController {
 
     LocalDate today = java.time.LocalDate.now();
+    private final UserService userService;
+
+    public CalenderController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping (path = Endpoints.INDEX)
     public ModelAndView showIndexPage(Model model) {
@@ -34,9 +42,10 @@ public class CalenderController {
     }
 
     @GetMapping(path=Endpoints.CALENDER)
-    public ModelAndView eventOverview(Model model){
-        var mav = new ModelAndView();
-        mav.setViewName(ViewNames.CALENDER);
+    public ModelAndView showCalender (Model model, String username) {
+        ModelAndView mav = new ModelAndView(ViewNames.CALENDER);
+
         return mav;
     }
+
 }

@@ -2,7 +2,17 @@ const app = Vue.createApp({});
 app.component('app', {
   template: `
     <div>
+        <h1 v-for="user">Welcome {{user}}!</h1>
         <h3>This week:</h3>
+        <h4 v-if="items.length === 0">No events</h4>
+        
+        <div>
+            <p>Create a new event:</p>
+        <input v-model="titleField" placeholder="Enter a title" ref="titleInput">
+        <input v-model="dateField" placeholder="dd/MM/yyyy" ref="dateInput">
+        <input v-model="timeField" placeholder="hh:mm" ref="timeInput">
+        <button type="button" @click="save()">Save</button>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -17,9 +27,6 @@ app.component('app', {
                 </tr>
             </thead>
             <tbody>
-                <tr v-if="items.length === 0">
-                    <td colspan="2">No events this week</td>
-                </tr>
                 <tr v-for="events in items">
                     <td>{{event.title}}</td>
                     <td>{{event.time}}</td>
@@ -30,54 +37,39 @@ app.component('app', {
                 </tr>
             </tbody>
         </table>
-        <div>
-            <p>Create a new event:</p>
-            <input v-model="titleField" placeholder="Title" ref="titleInput">
-            <input v-model="timeField" placeholder="Time" ref="timeInput">
-            <button type="button" @click="save()">Save</button>
-        </div>
+
     </div>
   `,
   data() {
     return {
-      user: '',
+        user: '',
       items: [],
+      dateField: '',
       titleField: '',
       timeField: '',
     };
   },
-  created() {
-    this.fetchUser();
-  },
   methods: {
-    fetchUser() {
-      axios.get('/current-user')
-        .then((response) => {
-          this.user = response.data;
-        })
-        .catch((error) => {
-          alert('User could not be fetched');
-          console.error(error.response.data);
-        });
+    loadEvents() {
+      axios.get('/calender')
+        .then((response) => (this.items = response.data));
     },
-  },
-  loadEvents() {
-    axios.get('/calender')
-      .then((response) => (this.items = response.data));
-  },
   save() {
     axios.post('/calender', {
       title: this.titleField,
+      date: this.dateField,
       time: this.timeField,
     })
-      .then((response) => {
-        this.titleField = '';
-        this.timeField = '';
-        this.$refs.titleInput.focus();
-        this.loadEvents();
-      }, (error) => {
-        console.log('Could not save event!');
-      });
+        .then((response) => {
+          this.titleField = '';
+          this.dateField = '';
+          this.timeField = '';
+          this.$refs.titleInput.focus();
+          this.loadEvents();
+        }, (error) => {
+          console.log('Could not save event!');
+        });
+    },
   },
   mounted() {
     this.loadEvents();

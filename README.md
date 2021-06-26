@@ -1,5 +1,14 @@
 # htwcalenderproject
-Im Rahmen des Moduls Webtechnologien an der HTW-Berlin wird ein Online-Kalender realisiert von Marie Jager (Einzelarbeit). Ein Nutzer kann sich für diesen Kalender anmelden und seine Termine speichern. Beim nächsten Zugriff werden alle bereits gespeicherten Termine angezeigt. Eventuelle Features: Der Nutzer kann die Farbe der Kalendereinträge bestimmen. Der Nutzer kann Termine mit anderen Nutzern teilen. Es wird eine Web Application gebaut, eine Datenbank realisiert und eine Nutzer-Interaktion eingerichtet. Das Projekt wird in Java programmiert und mit Tests versehen.
+Online-Kalender von Marie Jager (Einzelarbeit) \
+https://github.com/MarieJager/htwcalenderproject \
+Modul Webtechnologien, SoSe 2021, Prof. Dr. Arif Wider \
+HTW-Berlin 
+
+Funktionalität: \
+Die Startseite zeigt eine Willkommensnachricht und eine Vorschau des Kalenders. Es gibt zwei Buttons: Login und Register
+Um den Kalender nutzen zu können muss sich der Nutzer mit einem individuellen Nutzernamen und seiner E-Mail-Adresse anmelden. \
+Der Kalender stellt eine Wochenübersicht der vom Nutzer erstellten Termine dar. Über ein Feld kann der Nutzer weitere Termine speichern, die dann im Kalender sichtbar werden. \
+Die Nutzerdaten werden gespeichert und beim erneuten Anmelden über den Login abgerufen.
 
 Anforderungen im Überblick: 
 - die Anwendung ist nach Heroku deployed und öffentlich ansprechbar 
@@ -10,17 +19,21 @@ Anforderungen im Überblick:
 - es gibt eine REST-Schnittstelle (GET, POST) 
 - Funktionalitäten sind dynamisch im Frontend umgesetzt, VUE.js (keine Kommunikation mit Server nötig)
 
-
-Das Projekt ist auf Github öffentlich zugänglich: https://github.com/MarieJager/htwcalenderproject
-
 Zeitrahmen:
 
-April: Github-Repo mit Themenbeschreibung in README.md, "Hello World" Spring Boot App, Link zum Repo per Mail an Dozenten
-Mai: REST-Schnittstelle, zu Heroku deployed, Daten werden in Datenbank gespeichert
-Mai: statische, server-seitig mit Thymeleaf ersteltte, grafische Oberfläche
-Juni: dynamische, mit Vue.js erstellte grafische Oberfläche
+April: Github-Repo mit Themenbeschreibung in README.md, "Hello World" Spring Boot App, Link zum Repo per Mail an Dozenten\
+Mai: REST-Schnittstelle, zu Heroku deployed, Daten werden in Datenbank gespeichert\
+Mai: statische, server-seitig mit Thymeleaf ersteltte, grafische Oberfläche\
+Juni: dynamische, mit Vue.js erstellte grafische Oberfläche\
 Juni: finale Abgabe
 
+Java
+HTML
+Heroku deployed, Nutzung der Heroku Postgres Datenbank
+Datenbankanbindung mit Spring Boot
+Datenschutz mit Spring Web Security
+grafische Oberfläche mit Thymeleaf, CSS und Vue.js
+automatisierte Frontend- und Backend-Tests
+Programmieroberfläche IntelliJ IDEA Edu
+Git und Github
 
-Weitere geplante Funktionalitäten:
-- CustomErrorPage
