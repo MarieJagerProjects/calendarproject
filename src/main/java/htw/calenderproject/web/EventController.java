@@ -2,15 +2,14 @@ package htw.calenderproject.web;
 
 import htw.calenderproject.config.Endpoints;
 import htw.calenderproject.config.ViewNames;
+import htw.calenderproject.persistence.event.EventEntity;
 import htw.calenderproject.service.EventService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
-@Controller
+@RestController
 public class EventController {
 
     private final EventService eventService;
@@ -19,14 +18,9 @@ public class EventController {
         this.eventService = eventService;
     }
 
-    @GetMapping(path = Endpoints.EVENT)
-    public ModelAndView showNewEventPage () {
-        return new ModelAndView(ViewNames.EVENT);
-    }
-
-    @PostMapping(path = Endpoints.EVENT)
-    public RedirectView saveEvent(EventRequest eventRequest) {
-        eventService.createEvent(eventRequest);
+    @PostMapping(path = Endpoints.CALENDER)
+    public RedirectView saveEvent(@RequestBody EventData eventData) {
+            eventService.createEvent(eventData);
         return new RedirectView(Endpoints.CALENDER);
     }
 

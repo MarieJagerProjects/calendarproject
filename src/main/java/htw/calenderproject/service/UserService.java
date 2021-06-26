@@ -1,6 +1,5 @@
 package htw.calenderproject.service;
 
-import htw.calenderproject.persistence.event.EventEntity;
 import htw.calenderproject.persistence.user.UserEntity;
 import htw.calenderproject.persistence.user.UserRepository;
 import htw.calenderproject.web.RegistrationRequest;
@@ -10,15 +9,13 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.sql.SQLException;
-import java.util.List;
-import java.util.Optional;
-
 @Service
 public class UserService implements UserDetailsService {
 
+
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
 
     public UserService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
