@@ -41,11 +41,6 @@ public class CalenderController {
         return mav;
     }
 
-    @GetMapping(path=Endpoints.CALENDER)
-    public ModelAndView showCalender (Model model, String username) {
-        ModelAndView mav = new ModelAndView(ViewNames.CALENDER);
 
-        return mav;
-    }
 
 }

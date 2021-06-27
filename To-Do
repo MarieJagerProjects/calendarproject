@@ -1,18 +1,8 @@
 
-Klasse erstellen: Event Data Daten vom Typ String empfangen
-
-@RequestBody EventData (String title, String date, String time)
-
-createEvent im EventService(EventData eventData) {
-//Event Daten ziehen und in entsprechende Formate umwandeln
-//LoginUser generieren über SpringSecurity
-}
-
-- Logout Button
 - Frontend- und Backend-Tests
 
 
-
+- Logout Button
 - Grid Layout https://getbootstrap.com/docs/5.0/layout/grid/
 - Register und Login Button tauschen
 - Remember Me - beim Login

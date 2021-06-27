@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<html xmlns:th="https://www.thymeleaf.org" lang="en"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <title>Calender App</title>
     <meta charset="UTF-8">
@@ -15,6 +16,8 @@
     <script src="#" th:src="@{/js/app.js}" defer></script>
 </head>
 <body>
+    <div sec:authorize="isAuthenticated()">
+        Welcome <span sec:authentication="name"></span></div>
     <div id="app">
         <app>
         </app>

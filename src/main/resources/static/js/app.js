@@ -1,11 +1,7 @@
 const app = Vue.createApp({});
 app.component('app', {
   template: `
-    <div>
-        <h1 v-for="user">Welcome {{user}}!</h1>
-        <h3>This week:</h3>
-        <h4 v-if="items.length === 0">No events</h4>
-        
+    <div>  
         <div>
             <p>Create a new event:</p>
         <input v-model="titleField" placeholder="Enter a title" ref="titleInput">
@@ -13,17 +9,18 @@ app.component('app', {
         <input v-model="timeField" placeholder="hh:mm" ref="timeInput">
         <button type="button" @click="save()">Save</button>
         </div>
-        <table>
+        <h4>This week:</h4>    
+        <table class = table>
             <thead>
                 <tr>
-                    <th>Time</th>
-                    <th>Monday</th>
-                    <th>Tuesday</th>
-                    <th>Wednesday</th>
-                    <th>Thursday</th>
-                    <th>Friday</th>
-                    <th>Saturday</th>
-                    <th>Sunday</th>
+            <th scope="col"></th>
+            <th scope="col">Monday</th>
+            <th scope="col">Tuesday</th>
+            <th scope="col">Wednesday</th>
+            <th scope="col">Thursday</th>
+            <th scope="col">Friday</th>
+            <th scope="col">Saturday</th>
+            <th scope="col">Sunday</th>
                 </tr>
             </thead>
             <tbody>

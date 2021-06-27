@@ -67,4 +67,5 @@ public class EventServiceTest {
 /*
 Quellen:
 https://www.baeldung.com/spring-security-integration-tests
+https://docs.spring.io/spring-security/site/docs/4.0.2.RELEASE/reference/htmlsingle/#obtaining-information-about-the-current-user
  */
