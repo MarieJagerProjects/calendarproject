@@ -106,11 +106,11 @@ public class EventService {
         return user;
     }
 
-/*
-    public Optional<List<EventEntity>> loadEventsByUser(String username) {
 
+    public Optional<List<EventEntity>> loadEventsByUser() {
+        Optional<List<EventEntity>> eventList = eventRepository.findAllByUsername(getCurrentUser());
         return eventList;
-    }*/
+    }
 }
 
 
@@ -119,4 +119,7 @@ Quellen:
 https://mkyong.com/java8/java-8-how-to-convert-string-to-localdate/
 https://stackoverflow.com/questions/20231539/java-check-the-date-format-of-current-string-is-according-to-required-format-or/20232680
 https://docs.spring.io/spring-security/site/docs/4.0.2.RELEASE/reference/htmlsingle/#obtaining-information-about-the-current-user
+https://docs.spring.io/spring-data/data-commons/docs/1.6.1.RELEASE/reference/html/repositories.html
+https://zetcode.com/springboot/crudrepository/
+https://www.oracle.com/technical-resources/articles/java/java8-optional.html
  */

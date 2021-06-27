@@ -22,7 +22,7 @@ public class EventController {
     @GetMapping(path=Endpoints.CALENDER)
     public ModelAndView showCalender (Model model) {
         ModelAndView mav = new ModelAndView(ViewNames.CALENDER);
-        eventService.
+        mav.addObject(eventService.loadEventsByUser());
         return mav;
     }
 

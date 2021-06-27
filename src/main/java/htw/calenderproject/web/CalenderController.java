@@ -41,6 +41,4 @@ public class CalenderController {
         return mav;
     }
 
-
-
 }
