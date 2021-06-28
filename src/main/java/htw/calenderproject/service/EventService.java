@@ -1,6 +1,5 @@
 package htw.calenderproject.service;
 
-import htw.calenderproject.exceptions.EventNotFoundException;
 import htw.calenderproject.persistence.event.EventEntity;
 import htw.calenderproject.persistence.event.EventRepository;
 import htw.calenderproject.persistence.user.UserEntity;
@@ -9,11 +8,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,7 +20,6 @@ import java.util.Optional;
 public class EventService {
 
     private static DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    //private static DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("hh:mm");
     private final EventRepository eventRepository;
     private LocalDate eventDate;
     private LocalTime eventTime;
@@ -110,6 +108,17 @@ public class EventService {
     public Optional<List<EventEntity>> loadEventsByUser() {
         Optional<List<EventEntity>> eventList = eventRepository.findAllByUsername(getCurrentUser());
         return eventList;
+    }
+
+    public List<String> getEvents() {
+        List<EventEntity> eventList = new ArrayList<>();
+        loadEventsByUser().ifPresent(eventList::addAll);
+        List<String> events = new ArrayList<>();
+        Iterator<EventEntity> iterator = eventList.iterator();
+        while (iterator.hasNext()) {
+            events.add(iterator.next().getTitle());
+        }
+        return events;
     }
 }
 

@@ -11,13 +11,15 @@
 
 </head>
 <body>
-    <h1>Welcome to the calender app!</h1>
+    <h1>Welcome to the Calender App</h1>
     <h2> Today is: <span th:text="${today}"></span></h2>
     <!--Register -->
+    <p>Are you new? Create a new account and start with your calender:</p>
     <form method="get" action="/register">
         <button type="submit" class="btn btn-outline-dark">Register</button>
     </form>
-    <!-- Login Button -->
+    <p>or login to an existing account:</p>
+    <!-- Login Button-->
     <form method="get" action="/login">
         <button type="submit" class="btn btn-light">Login</button>
     </form>
