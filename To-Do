@@ -8,13 +8,16 @@
 - Remember Me - beim Login
 - nach Login: Assistent mit allen wichtigen Infos
 - Assistenten bauen
-- Nutzer merken
 - CustomErrorPage
 - Kalenderansicht anpassbar (Tag, Woche, Monat)
 - Notizen des Tages
 - Farbkodierung, individuell für jeden Nutzer
 - Termine teilen
 
-Problemlösung:
-- FetchUser in app.js https://router.vuejs.org/guide/advanced/data-fetching.html#fetching-before-navigation
-- Display user in welcome
+
+- Vue 2 calender integration https://vcalendar.io/installation.html
+      currentDate() {
+        const current = new Date();
+        const selectedDate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+        return selectedDate;
+      }

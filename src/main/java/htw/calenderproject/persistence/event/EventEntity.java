@@ -5,6 +5,8 @@ import htw.calenderproject.persistence.user.UserEntity;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Table(name = "event")

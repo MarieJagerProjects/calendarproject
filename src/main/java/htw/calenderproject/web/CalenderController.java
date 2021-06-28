@@ -3,12 +3,10 @@ package htw.calenderproject.web;
 
 import htw.calenderproject.config.Endpoints;
 import htw.calenderproject.config.ViewNames;
-import htw.calenderproject.service.EventService;
 import htw.calenderproject.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -41,6 +39,9 @@ public class CalenderController {
         return mav;
     }
 
-
+    @GetMapping(path = Endpoints.CALENDER)
+    public ModelAndView showCalender (Model model) {
+        return new ModelAndView(ViewNames.CALENDER);
+    }
 
 }

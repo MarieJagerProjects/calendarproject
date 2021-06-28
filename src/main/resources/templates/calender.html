@@ -4,7 +4,7 @@
 <head>
     <title>Calender App</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- layout -->
     <link th:href="@{/css/main.css}" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -14,13 +14,22 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="#" th:src="@{/js/app.js}" defer></script>
+
+
 </head>
 <body>
     <div sec:authorize="isAuthenticated()">
-        Welcome <span sec:authentication="name"></span></div>
+        <h2>Welcome <span sec:authentication="name"></span></h2></div>
     <div id="app">
-        <app>
-        </app>
+        <app></app>
     </div>
+    <!-- Logout Button-->
+    <form method="get" action="/">
+        <button type="submit" class="btn btn-dark">Logout</button>
+    </form>
 </body>
 </html>
+
+<!--Quellen
+ https://www.baeldung.com/get-user-in-spring-security
+ -->

@@ -1,13 +1,8 @@
 package htw.calenderproject.web;
 
 import htw.calenderproject.config.Endpoints;
-import htw.calenderproject.config.ViewNames;
-import htw.calenderproject.persistence.event.EventEntity;
 import htw.calenderproject.service.EventService;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 @RestController
@@ -19,11 +14,10 @@ public class EventController {
         this.eventService = eventService;
     }
 
-    @GetMapping(path=Endpoints.CALENDER)
-    public ModelAndView showCalender (Model model) {
-        ModelAndView mav = new ModelAndView(ViewNames.CALENDER);
-        eventService.
-        return mav;
+    @GetMapping(path=Endpoints.EVENT)
+    public RedirectView getEvents () {
+        eventService.getEvents();
+        return new RedirectView(Endpoints.CALENDER);
     }
 
     @PostMapping(path = Endpoints.CALENDER)
@@ -37,3 +31,8 @@ public class EventController {
     }
 
 }
+
+/*
+Quellen:
+https://frontbackend.com/thymeleaf/working-with-dates-in-thymeleaf
+ */
