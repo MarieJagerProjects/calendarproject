@@ -110,15 +110,15 @@ public class EventService {
         return eventList;
     }
 
-    public List<String> getEvents() {
+    public List<EventEntity> getEvents() {
         List<EventEntity> eventList = new ArrayList<>();
         loadEventsByUser().ifPresent(eventList::addAll);
         List<String> events = new ArrayList<>();
-        Iterator<EventEntity> iterator = eventList.iterator();
+        /*Iterator<EventEntity> iterator = eventList.iterator();
         while (iterator.hasNext()) {
             events.add(iterator.next().getTitle());
-        }
-        return events;
+        } */
+        return eventList;
     }
 }
 

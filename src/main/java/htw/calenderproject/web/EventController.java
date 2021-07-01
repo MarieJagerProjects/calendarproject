@@ -1,9 +1,12 @@
 package htw.calenderproject.web;
 
 import htw.calenderproject.config.Endpoints;
+import htw.calenderproject.persistence.event.EventEntity;
 import htw.calenderproject.service.EventService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
+
+import java.util.List;
 
 @RestController
 public class EventController {
@@ -15,9 +18,9 @@ public class EventController {
     }
 
     @GetMapping(path=Endpoints.EVENT)
-    public RedirectView getEvents () {
-        eventService.getEvents();
-        return new RedirectView(Endpoints.CALENDER);
+    public List<EventEntity> getEvents () {
+        List<EventEntity> events = eventService.getEvents();
+        return events;
     }
 
     @PostMapping(path = Endpoints.CALENDER)

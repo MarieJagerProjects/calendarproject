@@ -41,6 +41,7 @@ public class CalenderController {
 
     @GetMapping(path = Endpoints.CALENDER)
     public ModelAndView showCalender (Model model) {
+
         return new ModelAndView(ViewNames.CALENDER);
     }
 

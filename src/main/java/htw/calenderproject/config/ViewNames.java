@@ -6,5 +6,5 @@ public class ViewNames {
     public static final String CALENDER = "calender";
     public static final String LOGOUT = "index";
     public static final String REGISTER = "register";
-    public static final String EVENT = "newEvent";
+    public static final String EVENT = "events";
 }

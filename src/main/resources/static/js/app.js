@@ -9,10 +9,15 @@ app.component('app', {
         <input v-model="timeField" placeholder="hh:mm" ref="timeInput">
         <button type="button" @click="save()">Save</button>
     </div>
-    <p v-model="items">{{items}}</p>
+    <p></p>
     <table class = table>
         <thead>
             <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Time</th>
+            </tr>
+            <!-- 
              <th scope="col"></th>
              <th scope="col">Monday</th>
              <th scope="col">Tuesday</th>
@@ -21,16 +26,21 @@ app.component('app', {
              <th scope="col">Friday</th>
              <th scope="col">Saturday</th>
              <th scope="col">Sunday</th>
-              </tr>
+              </tr> -->
         </thead>
          <tbody>
-            <tr v-for="item in items">
-                <td>{{item.title}}</td>
-                <td>{{item.time}}</td>
+          <tr v-if="items.length === 0">
+            <td colspan="2">No events, yet.</td>
+          </tr>
+            <tr v-for="events in items">
+                <td>{{events.title}}</td>
+                <td>{{events.date}}</td>
+                <td>{{events.time}}</td>
             </tr>
             <tr>
-                <td> {{ eventTitle }}</td>
-                <td> {{ eventTime }}</td>
+                <td> {{ titleField }}</td>
+                <td> {{ dateField }}</td>
+                <td> {{ timeField }}</td>
             </tr>
          </tbody>
     </table>
@@ -38,16 +48,17 @@ app.component('app', {
   `,
   data() {
     return {
-        eventTitle: '',
-        eventTime: '',
         items: [],
-    }
+        titleField: '',
+        dateField: '',
+        timeField: '',
+
+    };
   },
   methods: {
   loadCalender() {
-      axios.get('/new_event')
-        .then((response) => (this.items = response.data));
-
+      axios.get('/events')
+        .then(response => (this.items = response.data))
     },
   save() {
     axios.post('/calender', {
@@ -66,9 +77,9 @@ app.component('app', {
         });
     },
   },
-  mounted() {
+  mounted: function() {
     this.loadCalender();
-  },
+  }
 });
 app.mount('#app');
 

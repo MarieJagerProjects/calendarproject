@@ -6,5 +6,5 @@ public class Endpoints {
     public static final String CALENDER = "/calender";
     public static final String LOGOUT = "/login?logout";
     public static final String REGISTER = "/register";
-    public static final String EVENT = "/newEvent";
+    public static final String EVENT = "/events";
 }
